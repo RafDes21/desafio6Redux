@@ -1,5 +1,7 @@
 import { ActivityIndicator, Text, View } from "react-native";
 import { useFonts } from "expo-font";
+import { Provider } from "react-redux";
+import store from "./store";
 
 import AppNavigator from "./navigation";
 import { styles } from "./styles";
@@ -19,7 +21,11 @@ const App = () => {
     );
   }
 
-  return <AppNavigator />;
+  return (
+    <Provider store={store}>
+      <AppNavigator />
+    </Provider>
+  );
 };
 
 export default App;
